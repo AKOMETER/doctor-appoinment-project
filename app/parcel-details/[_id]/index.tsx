@@ -38,7 +38,7 @@ const ParcelDetails = () => {
           <View className="bg-[#5151ff] rounded-xl w-full p-5">
             <View className="flex flex-row items-center w-full">
               <View className="min-w-[40%]">
-                <Text className="text-white">From</Text>
+                <Text className="text-white">Location</Text>
                 <Text className="text-white text-lg font-medium">
                   {parcel.from.split(",")[0]}
                 </Text>
@@ -50,9 +50,9 @@ const ParcelDetails = () => {
                 </Text>
               </View>
               <View className="min-w-[40%]">
-                <Text className="text-white text-right">To</Text>
+                <Text className="text-white text-right">Years Experience</Text>
                 <Text className="text-white text-right text-lg font-medium">
-                  {parcel.to.split(",")[0]}
+                  {parcel.years_experience} Yrs
                 </Text>
               </View>
             </View>

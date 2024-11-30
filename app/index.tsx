@@ -12,7 +12,7 @@ const Home = () => {
       <HeadBanner />
       <View className="p-5">
         <View className="flex flex-row items-center justify-between">
-          <Text className="text-2xl font-medium">Your Parcels</Text>
+          <Text className="text-2xl font-medium">Our Best Doctors</Text>
           <TouchableOpacity>
             <FontAwesome name="cogs" size={24} color="black" />
           </TouchableOpacity>
@@ -35,16 +35,16 @@ const Home = () => {
                 className="rounded-md shadow"
               />
               <View className="flex flex-col ml-3">
-                <Text className="text-lg font-medium">{item?.id}</Text>
+                <Text className="text-lg font-medium">{item?.doc_name}</Text>
                 <Text className="text-sm text-gray-500">
-                  {item.from.split(",")[0]} - {item.to.split(",")[0]}
+                  {item.from.split(",")[0]} -  {item.years_experience} Years experince
                 </Text>
               </View>
               <View className="ml-auto flex flex-row items-center gap-x-2">
                 <Octicons
                   name="dot-fill"
                   size={20}
-                  color={item?.status === "Delivered" ? "green" : "#ff54548c"}
+                  color={item?.status === "Available" ? "green" : "#ff54548c"}
                 />
                 <Text className="font-medium">{item?.status}</Text>
               </View>

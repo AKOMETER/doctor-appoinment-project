@@ -1,9 +1,10 @@
 export interface IParcels_data {
+  doc_name: string,
   id: string;
   logo: string;
   status: string;
   from: string;
-  to: string;
+  years_experience: number;
   days: string;
   type: string;
   weight: string;
@@ -20,10 +21,11 @@ export interface History {
 export const parcels_data: IParcels_data[] = [
   {
     id: "RD 7239 4911",
+    doc_name: "Dr. Dianne Russell",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSR4sWGfuHCmHvYGFZVQvgRWI1CGQMSVVN2g&s",
-    status: "Delivered",
-    from: "Germany, Europe",
-    to: "India, Asia",
+    status: "Available",
+    from: "Primrose Hill",
+    years_experience: 7,
     days: "7 days",
     type: "Transit",
     weight: "10kg",
@@ -62,10 +64,11 @@ export const parcels_data: IParcels_data[] = [
   },
   {
     id: "RD 5321 2385",
+    doc_name: "Dr. Savannah Nguyen",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVAIk5LiyuXxBmL2cfQFyoquKpu87d7VI_prqlEunsKQu5lj9Ns24v4P_SR86bpwDtuWY&usqp=CAU",
-    status: "In Transit",
-    from: "Brazil, South America",
-    to: "Australia, Oceania",
+    status: "Unavailable",
+    from: "King's Cross",
+    years_experience: 5,
     days: "8 days",
     type: "Transit",
     weight: "7kg",
@@ -104,10 +107,12 @@ export const parcels_data: IParcels_data[] = [
   },
   {
     id: "RD 9420 6823",
+    
+    doc_name: "Dr. Marvin McKinney",
     logo: "https://seeklogo.com/images/F/flipkart-logo-C9E637A758-seeklogo.com.png",
-    status: "Delivered",
-    from: "Japan, Asia",
-    to: "South Africa, Africa",
+    status: "Available",
+    from: "Marylebone",
+    years_experience: 6,
     days: "12 days",
     type: "Transit",
     weight: "3kg",
@@ -146,10 +151,12 @@ export const parcels_data: IParcels_data[] = [
   },
   {
     id: "RD 2647 5910",
+    
+    doc_name: "Dr. Cayden Stack",
     logo: "https://pbs.twimg.com/profile_images/1567807256091308032/4AXfLwia_400x400.jpg",
-    status: "In Transit",
-    from: "China, Asia",
-    to: "United Kingdom, Europe",
+    status: "Busy",
+    from: "South Bank and Westminster",
+    years_experience: 4,
     days: "6 days",
     type: "Transit",
     weight: "4kg",
@@ -188,10 +195,12 @@ export const parcels_data: IParcels_data[] = [
   },
   {
     id: "RD 7239 4911",
+    
+    doc_name: "Dr. Iker Bureau",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSR4sWGfuHCmHvYGFZVQvgRWI1CGQMSVVN2g&s",
-    status: "Delivered",
-    from: "Germany, Europe",
-    to: "India, Asia",
+    status: "Available",
+    from: "Bloomsbury",
+    years_experience: 2,
     days: "7 days",
     type: "Transit",
     weight: "10kg",
