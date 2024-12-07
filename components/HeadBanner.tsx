@@ -40,7 +40,7 @@ const HeadBanner = () => {
         </TouchableOpacity>
       </View>
       <View className="flex flex-col items-center justify-center px-10 w-full">
-        <DeliveryBoyIcon width={200} height={180} />
+        {/* <DeliveryBoyIcon width={200} height={180} /> */}
         <Text className="text-4xl text-white font-semibold">
           Book Your Next Doctor Appointment
         </Text>

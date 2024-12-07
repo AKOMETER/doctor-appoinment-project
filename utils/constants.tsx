@@ -5,17 +5,16 @@ export interface IParcels_data {
   status: string;
   from: string;
   years_experience: number;
-  days: string;
-  type: string;
-  weight: string;
-  history: History[];
+  Patients: string;
+  employment_period: string;
+  Designation: string;
+  aboutdoctor: Aboutdoctor[];
 }
 
-export interface History {
-  message: string;
-  location: string;
-  date: string;
-  time: string;
+export interface Aboutdoctor {
+  info: string;
+  experience: string;
+  
 }
 
 export const parcels_data: IParcels_data[] = [
@@ -26,39 +25,30 @@ export const parcels_data: IParcels_data[] = [
     status: "Available",
     from: "Primrose Hill",
     years_experience: 7,
-    days: "7 days",
-    type: "Transit",
-    weight: "10kg",
-    history: [
+    Patients: "450 successful patients",
+    employment_period: "1 May 2012 - Present",
+    Designation: "Residential Medical Officer",
+    aboutdoctor: [
       {
-        message: "Accepted by DHL Express",
-        location: "DHL Express, Germany",
-        date: "1st August, 2023",
-        time: "10:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
+        
       },
       {
-        message: "Shipped to India, Asia",
-        location: "DHL Express, Germany",
-        date: "2nd August, 2023",
-        time: "2:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Arrived at India, Asia",
-        location: "India, Asia",
-        date: "5th August, 2023",
-        time: "11:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Departed India, Asia",
-        location: "New Delhi, India",
-        date: "6th August, 2023",
-        time: "3:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Delivered to recipient",
-        location: "Mumbai, India",
-        date: "7th August, 2023",
-        time: "9:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
     ],
   },
@@ -69,39 +59,29 @@ export const parcels_data: IParcels_data[] = [
     status: "Unavailable",
     from: "King's Cross",
     years_experience: 5,
-    days: "8 days",
-    type: "Transit",
-    weight: "7kg",
-    history: [
+    Patients: "23 Successful Patients",
+    employment_period: "23 June 2011 - Present",
+    Designation: "Doctor of Osteopathic Medicine ",
+    aboutdoctor: [
       {
-        message: "Accepted by Global Express",
-        location: "Global Express, Brazil",
-        date: "5th September, 2023",
-        time: "9:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Shipped to Australia, Oceania",
-        location: "Global Express, Brazil",
-        date: "6th September, 2023",
-        time: "1:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Arrived at Sydney, Australia",
-        location: "Sydney, Australia",
-        date: "9th September, 2023",
-        time: "4:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Departed Sydney, Australia",
-        location: "Melbourne, Australia",
-        date: "10th September, 2023",
-        time: "12:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "On the way to Melbourne, Australia",
-        location: "Australia",
-        date: "11th September, 2023",
-        time: "8:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
     ],
   },
@@ -113,39 +93,29 @@ export const parcels_data: IParcels_data[] = [
     status: "Available",
     from: "Marylebone",
     years_experience: 6,
-    days: "12 days",
-    type: "Transit",
-    weight: "3kg",
-    history: [
+    Patients: "122 Successfull Patients",
+    employment_period: "3 November 2009 - Present",
+    Designation: "Doctor of Chiropractic",
+    aboutdoctor: [
       {
-        message: "Accepted by Japan Express",
-        location: "Japan Express, Japan",
-        date: "12th November, 2023",
-        time: "11:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Shipped to South Africa, Africa",
-        location: "Japan Express, Japan",
-        date: "14th November, 2023",
-        time: "2:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Arrived at South Africa, Africa",
-        location: "South Africa, Africa",
-        date: "17th November, 2023",
-        time: "10:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Departed South Africa, Africa",
-        location: "Johannesburg, South Africa",
-        date: "18th November, 2023",
-        time: "5:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Delivered to recipient",
-        location: "Cape Town, South Africa",
-        date: "20th November, 2023",
-        time: "1:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
     ],
   },
@@ -157,39 +127,29 @@ export const parcels_data: IParcels_data[] = [
     status: "Busy",
     from: "South Bank and Westminster",
     years_experience: 4,
-    days: "6 days",
-    type: "Transit",
-    weight: "4kg",
-    history: [
+    Patients: "62 Successful Patients",
+    employment_period: "18 January 2015 - Present",
+    Designation: "Ophthalmologist",
+    aboutdoctor: [
       {
-        message: "Accepted by China Post",
-        location: "Beijing, China",
-        date: "15th October, 2023",
-        time: "10:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Shipped to United Kingdom, Europe",
-        location: "Beijing, China",
-        date: "16th October, 2023",
-        time: "3:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Arrived at United Kingdom, Europe",
-        location: "London, UK",
-        date: "18th October, 2023",
-        time: "9:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Departed London, UK",
-        location: "Manchester, UK",
-        date: "19th October, 2023",
-        time: "4:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "On the way to Manchester, UK",
-        location: "UK",
-        date: "20th October, 2023",
-        time: "7:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
     ],
   },
@@ -201,39 +161,29 @@ export const parcels_data: IParcels_data[] = [
     status: "Available",
     from: "Bloomsbury",
     years_experience: 2,
-    days: "7 days",
-    type: "Transit",
-    weight: "10kg",
-    history: [
+    Patients: "345 Successful Patients",
+    employment_period: "20 August 2016 - Present",
+    Designation: "Doctor of Podiatry",
+    aboutdoctor: [
       {
-        message: "Accepted by DHL Express",
-        location: "DHL Express, Germany",
-        date: "1st August, 2023",
-        time: "10:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Shipped to India, Asia",
-        location: "DHL Express, Germany",
-        date: "2nd August, 2023",
-        time: "2:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Arrived at India, Asia",
-        location: "India, Asia",
-        date: "5th August, 2023",
-        time: "11:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Departed India, Asia",
-        location: "New Delhi, India",
-        date: "6th August, 2023",
-        time: "3:00pm",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
       {
-        message: "Delivered to recipient",
-        location: "Mumbai, India",
-        date: "7th August, 2023",
-        time: "9:00am",
+        info: "Dr. Dianne Johnson is a dedicated gynecologist committed to women's health and well-being. With expertise in obstetrics and gynecology, she provides compassionate care, emphasizing preventive measures and personalized treatment. Dr. Johnson's approach focuses on empowering her patients through education and comprehensive medical guidance, ensuring their comfort and confidence throughout their healthcare journey.",
+        experience: "",
       },
     ],
   },

@@ -32,7 +32,7 @@ const ParcelDetails = () => {
 
           <View className="flex flex-row items-center gap-x-5">
             <FontAwesome6 name="people-carry-box" size={30} color="black" />
-            <Text className="text-3xl font-medium">{parcel.id}</Text>
+            <Text className="text-3xl font-medium">Doctor ID {parcel.id}</Text>
           </View>
 
           <View className="bg-[#5151ff] rounded-xl w-full p-5">
@@ -46,7 +46,7 @@ const ParcelDetails = () => {
               <View className="min-w-[20%] flex flex-col justify-center items-center">
                 <FontAwesome6 name="truck-ramp-box" size={24} color="white" />
                 <Text className="text-white font-bold text-lg">
-                  {parcel.days}
+                  {parcel.Patients}
                 </Text>
               </View>
               <View className="min-w-[40%]">
@@ -60,15 +60,15 @@ const ParcelDetails = () => {
               <View className="w-1/3">
                 <Text className="text-white font-medium">Type</Text>
                 <Text className="text-white font-bold text-xl">
-                  {parcel.type}
+                  {parcel.employment_period} 
                 </Text>
               </View>
               <View className="w-1/3">
                 <Text className="text-white font-medium text-center">
-                  Weight
+                Designation
                 </Text>
                 <Text className="text-white font-bold text-xl text-center">
-                  {parcel.weight}
+                  {parcel.Designation}
                 </Text>
               </View>
               <View className="w-1/3">
@@ -83,9 +83,9 @@ const ParcelDetails = () => {
           </View>
 
           <View>
-            <Text className="text-3xl font-semibold">History</Text>
+            <Text className="text-3xl font-semibold">About Doctor</Text>
             <View className="flex flex-col mt-5">
-              {parcel.history.reverse().map((item, index) => (
+              {parcel.aboutdoctor.reverse().map((item, index) => (
                 <View
                   key={index}
                   className="flex flex-row gap-x-3 border-l-2 border-slate-300 ml-2 pb-5"
@@ -99,15 +99,15 @@ const ParcelDetails = () => {
                   </View>
                   <View>
                     <Text className="text-xl font-semibold">
-                      {item.message}
+                      {/* {item.info} */}
                     </Text>
                     <View className="flex flex-row items-center justify-start gap-x-3">
                       <Text className="text-lg font-medium">
-                        {item.date.split(",")[0]}, {item.time}
+                       {/* {item.experience} */}
                       </Text>
-                      <Octicons name="dot-fill" size={10} color="black" />
+                      {/* <Octicons name="dot-fill" size={10} color="black" /> */}
                       <Text className="text-lg font-medium">
-                        {item.location.split(",")[0]}
+                        
                       </Text>
                     </View>
                   </View>
