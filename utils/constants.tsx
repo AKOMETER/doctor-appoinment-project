@@ -21,7 +21,7 @@ export const parcels_data: IParcels_data[] = [
   {
     id: "RD 7239 4911",
     doc_name: "Dr. Dianne Russell",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSR4sWGfuHCmHvYGFZVQvgRWI1CGQMSVVN2g&s",
+    logo: "https://www.scripps.org/sparkle-assets/preview_thumbnails/news_items/4213/default-7d52a31e13b4e0d9a0a96f291ddbdc98.jpg",
     status: "Available",
     from: "Primrose Hill",
     years_experience: 7,
@@ -55,7 +55,7 @@ export const parcels_data: IParcels_data[] = [
   {
     id: "RD 5321 2385",
     doc_name: "Dr. Savannah Nguyen",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVAIk5LiyuXxBmL2cfQFyoquKpu87d7VI_prqlEunsKQu5lj9Ns24v4P_SR86bpwDtuWY&usqp=CAU",
+    logo: "https://www.yourfreecareertest.com/wp-content/uploads/2018/01/how_to_become_a_doctor-300x200.jpg",
     status: "Unavailable",
     from: "King's Cross",
     years_experience: 5,
@@ -89,7 +89,7 @@ export const parcels_data: IParcels_data[] = [
     id: "RD 9420 6823",
     
     doc_name: "Dr. Marvin McKinney",
-    logo: "https://seeklogo.com/images/F/flipkart-logo-C9E637A758-seeklogo.com.png",
+    logo: "https://media.istockphoto.com/id/177373093/photo/indian-male-doctor.jpg?s=612x612&w=0&k=20&c=5FkfKdCYERkAg65cQtdqeO_D0JMv6vrEdPw3mX1Lkfg=",
     status: "Available",
     from: "Marylebone",
     years_experience: 6,
@@ -123,7 +123,7 @@ export const parcels_data: IParcels_data[] = [
     id: "RD 2647 5910",
     
     doc_name: "Dr. Cayden Stack",
-    logo: "https://pbs.twimg.com/profile_images/1567807256091308032/4AXfLwia_400x400.jpg",
+    logo: "https://wp.globaluniversitysystems.com/mua/wp-content/uploads/sites/10/2023/03/board-certified-doctor-meaning.webp",
     status: "Busy",
     from: "South Bank and Westminster",
     years_experience: 4,
@@ -157,7 +157,7 @@ export const parcels_data: IParcels_data[] = [
     id: "RD 7239 4911",
     
     doc_name: "Dr. Iker Bureau",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSR4sWGfuHCmHvYGFZVQvgRWI1CGQMSVVN2g&s",
+    logo: "https://www.scripps.org/sparkle-assets/images/new_doctor_fb-32abb9ba141c8223aadebce90782ac68.jpeg",
     status: "Available",
     from: "Bloomsbury",
     years_experience: 2,

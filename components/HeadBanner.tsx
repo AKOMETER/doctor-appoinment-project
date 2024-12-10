@@ -1,20 +1,28 @@
 import {
-    View,
-    useWindowDimensions,
-    SafeAreaView,
-    Text,
-    TouchableOpacity,
-    Image,
-    TextInput,
-    KeyboardAvoidingView,
+  View,
+  useWindowDimensions,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  Image,
+  TextInput,
+  KeyboardAvoidingView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import DeliveryBoyIcon from "@/assets/images/DeliveryBoyIcon";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { router } from "expo-router";
 
 const HeadBanner = () => {
   const { width, height } = useWindowDimensions();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      router.push(`/search?query=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   return (
     <SafeAreaView
@@ -52,14 +60,12 @@ const HeadBanner = () => {
           style={{
             width: "100%",
           }}
-          className=""
         >
           <View className="relative flex flex-row items-center">
             <View className="absolute pt-4 pl-3">
               <FontAwesome5 name="search" size={20} color="white" />
             </View>
             <TextInput
-              keyboardType="numeric"
               placeholder="Find your suitable doctor"
               placeholderTextColor={"#fff"}
               className="bg-white/20 w-full mt-5 p-3 rounded-lg text-white pl-12"
@@ -67,8 +73,17 @@ const HeadBanner = () => {
                 fontSize: 20,
                 width: "100%",
               }}
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              onSubmitEditing={handleSearch}
             />
           </View>
+          <TouchableOpacity
+            onPress={handleSearch}
+            className=""
+          >
+            {/* <Text className="text-white text-center text-lg">Search</Text> */}
+          </TouchableOpacity>
         </KeyboardAvoidingView>
       </View>
     </SafeAreaView>

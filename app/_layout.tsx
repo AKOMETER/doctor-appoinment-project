@@ -8,6 +8,7 @@ export default function RootLayout() {
   return (
     <React.Fragment>
       <Stack>
+        {/* Main Screens */}
         <Stack.Screen
           name="index"
           options={{
@@ -20,6 +21,33 @@ export default function RootLayout() {
             headerShown: false,
           }}
         />
+
+        {/* Auth Screens */}
+        <Stack.Screen
+          name="auth/login"
+          options={{
+            title: "Login",
+            headerStyle: { backgroundColor: "blue" },
+            headerTintColor: "white",
+          }}
+        />
+          <Stack.Screen
+          name="auth/forget_password"
+          options={{
+            title: "forget_password",
+            headerStyle: { backgroundColor: "blue" },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="auth/register"
+          options={{
+            title: "Register",
+            headerStyle: { backgroundColor: "blue" },
+            headerTintColor: "white",
+          }}
+        />
+
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
