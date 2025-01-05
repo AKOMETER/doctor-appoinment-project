@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  ScrollView,
   View,
   Text,
   TextInput,
   TouchableOpacity,
   Image,
-  StyleSheet,
-  FlatList,
+  ScrollView,
+  SafeAreaView,
+  useWindowDimensions,
 } from "react-native";
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons";
 
 const specialities = [
-  { id: 1, name: "Dentist", icon: require("./assets/images/dentist.png") },
-  { id: 2, name: "Neurologist", icon: require("./assets/images/neurologist.png") },
-  { id: 3, name: "Orthopedic", icon: require("./assets/images/orthopedic.png") },
-  { id: 4, name: "Cardiologist", icon: require("./assets/images/cardiologist.png") },
+  {
+    id: 1,
+    name: "Dentist",
+    icon: "https://img.icons8.com/color/64/tooth.png",
+  },
+  {
+    id: 2,
+    name: "Neurologist",
+    icon: "https://img.icons8.com/color/64/brain.png",
+  },
+  {
+    id: 3,
+    name: "Orthopedic",
+    icon: "https://img.icons8.com/color/64/orthopedic.png",
+  },
+  {
+    id: 4,
+    name: "Cardiologist",
+    icon: "https://img.icons8.com/color/64/heart-health.png",
+  },
 ];
 
 const doctors = [
@@ -23,185 +38,168 @@ const doctors = [
     id: 1,
     name: "Dr. Zara K",
     speciality: "Dentist",
-    services: "Cleaning, repair",
-    rating: 5,
-    reviews: 2,
     location: "Coimbatore, India",
-    price: "₹50.00",
-    image: "https://via.placeholder.com/150",
+    price: "₹50.00 / per slot",
+    rating: 4.5,
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
     id: 2,
     name: "Dr. Waseem Sabra",
     speciality: "Neurologist",
-    services: "service 1, service 2",
-    rating: 4,
-    reviews: 1,
     location: "Cherrybrook, Australia",
-    price: "₹2.45",
-    image: "https://via.placeholder.com/150",
+    price: "₹2.45 / per slot",
+    rating: 4.0,
+    image: "https://randomuser.me/api/portraits/men/47.jpg",
   },
 ];
 
-const Home = () => {
-  const [city, setCity] = useState("");
-  const [doctorName, setDoctorName] = useState("");
-
-  const handleSearch = () => {
-    console.log(`Search for doctors in ${city} with name or speciality ${doctorName}`);
-  };
+const HomePage = () => {
+  const { width } = useWindowDimensions();
 
   return (
-    <ScrollView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity>
-          <FontAwesome name="bars" size={24} color="white" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Home</Text>
-        <View style={styles.headerIcons}>
-          <TouchableOpacity>
-            <FontAwesome name="phone" size={20} color="white" />
-          </TouchableOpacity>
-        </View>
-      </View>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f6f6" }}>
+      <ScrollView>
+        {/* Header */}
+        <View
+          style={{
+            backgroundColor: "#0077b6",
+            padding: 20,
+            borderBottomLeftRadius: 20,
+            borderBottomRightRadius: 20,
+          }}
+        >
+          <Text style={{ color: "white", fontSize: 24, fontWeight: "bold" }}>
+            Home
+          </Text>
 
-      {/* Search Section */}
-      <View style={styles.searchSection}>
-        <TextInput
-          style={styles.input}
-          placeholder="Search City (Ex: Chennai, etc)"
-          value={city}
-          onChangeText={setCity}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Search Doctor name, Speciality"
-          value={doctorName}
-          onChangeText={setDoctorName}
-        />
-        <TouchableOpacity style={styles.searchButton} onPress={handleSearch}>
-          <Text style={styles.searchButtonText}>Search Now</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Specialities Section */}
-      <View style={styles.specialitiesSection}>
-        <Text style={styles.sectionTitle}>Specialities</Text>
-        <TouchableOpacity>
-          <Text style={styles.viewAll}>View All</Text>
-        </TouchableOpacity>
-      </View>
-      <FlatList
-        horizontal
-        data={specialities}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
-          <View style={styles.specialityCard}>
-            <Image source={item.icon} style={styles.specialityIcon} />
-            <Text style={styles.specialityName}>{item.name}</Text>
-          </View>
-        )}
-      />
-
-      {/* Doctors List */}
-      <View style={styles.doctorsSection}>
-        <Text style={styles.sectionTitle}>Find Doctors</Text>
-        <TouchableOpacity>
-          <Text style={styles.viewAll}>View All</Text>
-        </TouchableOpacity>
-      </View>
-      {doctors.map((doctor) => (
-        <View key={doctor.id} style={styles.doctorCard}>
-          <Image source={{ uri: doctor.image }} style={styles.doctorImage} />
-          <View style={styles.doctorDetails}>
-            <Text style={styles.doctorName}>{doctor.name}</Text>
-            <Text style={styles.doctorServices}>{doctor.services}</Text>
-            <Text style={styles.doctorSpeciality}>{doctor.speciality}</Text>
-            <View style={styles.ratingRow}>
-              <FontAwesome name="star" size={16} color="#FFD700" />
-              <Text style={styles.ratingText}>{doctor.rating} ({doctor.reviews})</Text>
-            </View>
-            <Text style={styles.doctorLocation}>{doctor.location}</Text>
-          </View>
-          <View style={styles.doctorFooter}>
-            <Text style={styles.doctorPrice}>{doctor.price} / per slot</Text>
-            <TouchableOpacity style={styles.bookButton}>
-              <Text style={styles.bookButtonText}>Book Appointment</Text>
+          {/* Search Inputs */}
+          <View
+            style={{
+              marginTop: 20,
+              backgroundColor: "white",
+              borderRadius: 10,
+              padding: 10,
+              elevation: 2,
+            }}
+          >
+            <TextInput
+              placeholder="Search City (Ex: Chennai, etc)"
+              style={{
+                backgroundColor: "#f0f0f0",
+                borderRadius: 8,
+                padding: 10,
+                marginBottom: 10,
+              }}
+            />
+            <TextInput
+              placeholder="Search Doctor name, Speciality"
+              style={{
+                backgroundColor: "#f0f0f0",
+                borderRadius: 8,
+                padding: 10,
+              }}
+            />
+            <TouchableOpacity
+              style={{
+                backgroundColor: "#00b4d8",
+                borderRadius: 8,
+                padding: 15,
+                marginTop: 10,
+              }}
+            >
+              <Text style={{ textAlign: "center", color: "white" }}>
+                Search Now
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
-      ))}
-    </ScrollView>
+
+        {/* Specialities */}
+        <View style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 10,
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>Specialities</Text>
+            <Text style={{ color: "#0077b6" }}>View All</Text>
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {specialities.map((item) => (
+              <View
+                key={item.id}
+                style={{
+                  alignItems: "center",
+                  marginRight: 20,
+                }}
+              >
+                <Image
+                  source={{ uri: item.icon }}
+                  style={{ width: 64, height: 64, marginBottom: 5 }}
+                />
+                <Text>{item.name}</Text>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+
+        {/* Doctors */}
+        <View style={{ padding: 20 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginBottom: 10,
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "bold" }}>Find Doctors</Text>
+            <Text style={{ color: "#0077b6" }}>View All</Text>
+          </View>
+          {doctors.map((doctor) => (
+            <View
+              key={doctor.id}
+              style={{
+                flexDirection: "row",
+                backgroundColor: "white",
+                borderRadius: 10,
+                marginBottom: 10,
+                padding: 10,
+                elevation: 2,
+              }}
+            >
+              <Image
+                source={{ uri: doctor.image }}
+                style={{ width: 80, height: 80, borderRadius: 10 }}
+              />
+              <View style={{ marginLeft: 10, flex: 1 }}>
+                <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+                  {doctor.name}
+                </Text>
+                <Text style={{ color: "#777" }}>{doctor.speciality}</Text>
+                <Text style={{ color: "#0077b6" }}>{doctor.location}</Text>
+                <Text>{doctor.price}</Text>
+                <Text>{`⭐ ${doctor.rating}`}</Text>
+              </View>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#00b4d8",
+                  borderRadius: 8,
+                  paddingVertical: 10,
+                  paddingHorizontal: 15,
+                  alignSelf: "center",
+                }}
+              >
+                <Text style={{ color: "white" }}>Book Appointment</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: "#F9F9F9" },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    backgroundColor: "#007AFF",
-    padding: 16,
-  },
-  headerTitle: { fontSize: 20, color: "white", fontWeight: "600" },
-  headerIcons: { flexDirection: "row", alignItems: "center" },
-  searchSection: {
-    backgroundColor: "white",
-    padding: 16,
-    margin: 16,
-    borderRadius: 8,
-    elevation: 3,
-  },
-  input: {
-    backgroundColor: "#F5F5F5",
-    borderRadius: 8,
-    padding: 12,
-    marginVertical: 8,
-    fontSize: 16,
-  },
-  searchButton: { backgroundColor: "#00C4FF", borderRadius: 8, padding: 12 },
-  searchButtonText: { textAlign: "center", color: "white", fontWeight: "600" },
-  specialitiesSection: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 16,
-    marginVertical: 8,
-  },
-  sectionTitle: { fontSize: 18, fontWeight: "600" },
-  viewAll: { color: "#007AFF", fontSize: 14 },
-  specialityCard: { alignItems: "center", marginHorizontal: 8 },
-  specialityIcon: { width: 60, height: 60, marginBottom: 8 },
-  specialityName: { fontSize: 14, fontWeight: "500" },
-  doctorsSection: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 16,
-    marginVertical: 8,
-  },
-  doctorCard: {
-    flexDirection: "row",
-    backgroundColor: "white",
-    padding: 16,
-    margin: 16,
-    borderRadius: 8,
-    elevation: 3,
-  },
-  doctorImage: { width: 80, height: 80, borderRadius: 8, marginRight: 16 },
-  doctorDetails: { flex: 1 },
-  doctorName: { fontSize: 16, fontWeight: "600" },
-  doctorServices: { color: "#666", fontSize: 14 },
-  doctorSpeciality: { color: "#00C4FF", fontSize: 14, marginVertical: 4 },
-  ratingRow: { flexDirection: "row", alignItems: "center", marginVertical: 4 },
-  ratingText: { marginLeft: 4, color: "#666" },
-  doctorLocation: { color: "#666", fontSize: 14 },
-  doctorFooter: { alignItems: "flex-end" },
-  doctorPrice: { fontSize: 14, fontWeight: "600", marginBottom: 8 },
-  bookButton: { backgroundColor: "#00C4FF", borderRadius: 8, padding: 8 },
-  bookButtonText: { color: "white", fontWeight: "600", fontSize: 14 },
-});
-
-export default Home;
+export default HomePage;
