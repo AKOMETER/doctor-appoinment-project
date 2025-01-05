@@ -9,7 +9,8 @@ import {
   Alert,
 } from "react-native";
 import axios from "axios";
-
+import { BACKEND_URL } from "@env"; // Assuming react-native-dotenv is set up
+console.log(BACKEND_URL)
 export default function RegisterScreen() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -22,13 +23,14 @@ export default function RegisterScreen() {
     role: "admin",
   });
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: string, value: string) => {
     setFormData({ ...formData, [field]: value });
   };
 
   const handleSubmit = async () => {
+
     const {
-      name: firstName,
+      firstName,
       lastName,
       email,
       code,
@@ -44,16 +46,27 @@ export default function RegisterScreen() {
     }
 
     try {
-      const response = await axios.post("https://localhost:5001/register", {
-        name: firstName + " " + lastName,
+      const response = await axios.post(`${BACKEND_URL}/auth/register`, {
+        name: `${firstName} ${lastName}`,
         email,
         password,
         role,
       });
 
       Alert.alert("Success", response.data.msg || "Registration successful!");
-    } catch (error) {
-      Alert.alert("Error", error.response?.data?.msg || "Registration failed!");
+    } catch (error: any) {
+      console.log("Error Details:", {
+        message: error.message,
+        code: error.code,
+        config: error.config,
+        response: error.response,
+        request: error.request,
+      });
+
+      Alert.alert(
+        "Error",
+        error.response?.data?.msg || "Registration failed!"
+      );
     }
   };
 

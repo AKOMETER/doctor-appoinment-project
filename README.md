@@ -24,3 +24,8 @@ Run on IOS : npm run ios
 Run on web : npm start
 
 ```
+
+## Get ip address for mac and windows user
+ifconfig (Linux/Mac)
+ipconfig (Windows)
+
