@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,23 +7,60 @@ import {
   StyleSheet,
   Alert,
 } from "react-native";
+import axios from "axios";
 import { router } from "expo-router";
+import { BACKEND_URL } from "@env";
 
 export default function LoginScreen() {
-  const handleLogin = () => {
-    Alert.alert("Login", "Login functionality not implemented yet.");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please fill in both fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`${BACKEND_URL}/auth/login`, {
+        email,
+        password,
+      });
+
+      // Handle success response (e.g., store token, navigate, etc.)
+      Alert.alert("Success", "Login successful!");
+      // You can redirect the user to a different screen on successful login:
+      router.push("/pages/appointments");
+    } catch (error) {
+      Alert.alert(
+        "Error",
+        error.response?.data?.msg || "Login failed! Please try again.",
+      );
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
-      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" />
-      <TextInput style={styles.input} placeholder="Password" secureTextEntry />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        keyboardType="email-address"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword}
+      />
       <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
       {/* Link to Forget Password */}
-      <TouchableOpacity onPress={() => router.push("auth/forget-password")}>
+      <TouchableOpacity onPress={() =>  router.push("/auth/forget_password")}>
         <Text style={styles.forgotPasswordText}>
           Have you forgotten your password? Click here
         </Text>

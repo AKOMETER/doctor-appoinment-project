@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { BACKEND_URL } from "@env"; // Assuming react-native-dotenv is set up
-console.log(BACKEND_URL)
+
 export default function RegisterScreen() {
   const [formData, setFormData] = useState({
     firstName: "",
