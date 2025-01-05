@@ -6,62 +6,124 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
-import RadioGroup from "react-native-radio-buttons-group";
+import axios from "axios";
 
 export default function RegisterScreen() {
-  const [selectedRole, setSelectedRole] = useState("Doctor");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    code: "",
+    mobile: "",
+    password: "",
+    confirmPassword: "",
+    role: "admin",
+  });
 
-  const roles = [
-    { id: "1", label: "Health Care Proffessional", value: "Health Care Proffessional" },
-    { id: "2", label: "Patient", value: "Patient" },
-    { id: "3", label: "Admin", value: "Admin" },
-  ];
+  const handleInputChange = (field, value) => {
+    setFormData({ ...formData, [field]: value });
+  };
 
-  const handleRoleChange = (role) => {
-    setSelectedRole(role);
+  const handleSubmit = async () => {
+    const {
+      name: firstName,
+      lastName,
+      email,
+      code,
+      mobile,
+      password,
+      confirmPassword,
+      role,
+    } = formData;
+
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Passwords do not match!");
+      return;
+    }
+
+    try {
+      const response = await axios.post("https://localhost:5001/register", {
+        name: firstName + " " + lastName,
+        email,
+        password,
+        role,
+      });
+
+      Alert.alert("Success", response.data.msg || "Registration successful!");
+    } catch (error) {
+      Alert.alert("Error", error.response?.data?.msg || "Registration failed!");
+    }
   };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.radioGroup}>
-        {roles.map((role) => (
+        {["user", "admin"].map((role) => (
           <TouchableOpacity
-            key={role.id}
+            key={role}
             style={[
               styles.radioOption,
-              selectedRole === role.value && styles.radioOptionSelected,
+              formData.role === role && styles.radioOptionSelected,
             ]}
-            onPress={() => handleRoleChange(role.value)}
+            onPress={() => handleInputChange("role", role)}
           >
-            <Text style={styles.radioText}>{role.label}</Text>
+            <Text style={styles.radioText}>{role}</Text>
           </TouchableOpacity>
         ))}
       </View>
 
-      <TextInput style={styles.input} placeholder="First Name" />
-      <TextInput style={styles.input} placeholder="Last Name" />
-      <TextInput style={styles.input} placeholder="Email" keyboardType="email-address" />
+      <TextInput
+        style={styles.input}
+        placeholder="First Name"
+        value={formData.firstName}
+        onChangeText={(text) => handleInputChange("firstName", text)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Last Name"
+        value={formData.lastName}
+        onChangeText={(text) => handleInputChange("lastName", text)}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        keyboardType="email-address"
+        value={formData.email}
+        onChangeText={(text) => handleInputChange("email", text)}
+      />
       <View style={styles.row}>
-        <TextInput style={[styles.input, styles.codeInput]} placeholder="Code" />
+        <TextInput
+          style={[styles.input, styles.codeInput]}
+          placeholder="Code"
+          value={formData.code}
+          onChangeText={(text) => handleInputChange("code", text)}
+        />
         <TextInput
           style={[styles.input, styles.mobileInput]}
           placeholder="Mobile no"
           keyboardType="phone-pad"
+          value={formData.mobile}
+          onChangeText={(text) => handleInputChange("mobile", text)}
         />
       </View>
       <TextInput
         style={styles.input}
         placeholder="Password"
         secureTextEntry
+        value={formData.password}
+        onChangeText={(text) => handleInputChange("password", text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Confirm Password"
         secureTextEntry
+        value={formData.confirmPassword}
+        onChangeText={(text) => handleInputChange("confirmPassword", text)}
       />
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
     </ScrollView>

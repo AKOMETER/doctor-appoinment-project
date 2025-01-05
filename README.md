@@ -16,9 +16,11 @@ Let's Start 👋🏻
 command to install and run :
 
 ```
+
 Install :  npm install
 
 Run on Android : npm run android
 Run on IOS : npm run ios
 Run on web : npm start
+
 ```
